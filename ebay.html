@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamburger Menu</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    --color1: #FFF ;
+    --color2: #8399B3 ;
+    background-color: #D6E4E5 ;
+}
+nav {
+    max-width: 1368px;
+    margin:3px 0px 0px 0px;
+    padding: 0px 10px 0px 10px;
+
+}
+.nav-bar {
+    border-radius: 20px;
+    padding: 10px 30px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    position: relative;
+    background-color: var(--color2);
+}
+.logo img {height: 90px;}
+.menu {display: flex;}
+.menu li {padding-left: 30px;}
+.fa-home {
+  background-color: #0b0d17;
+  color: #fff;
+  font-size: 22px;
+  padding: 19px;
+}
+.menu li a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--color1);
+    text-align: center;
+    transition: 0.15s ease-in-out;
+    position: relative;
+    text-transform: uppercase;
+}
+.menu li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color1);
+    transition: 0.15s ease-in-out;
+}
+.menu li a:hover:after {width: 100%;}
+.open-menu , .close-menu {
+    position: absolute;
+    color: var(--color1);
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: none;
+}
+.open-menu {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+.close-menu {
+    top: 30px;
+    right: 20px;
+}
+#check {display: none;}
+
+.content {
+    max-width: 1368px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #D6E4E5;
+}
+.card {
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    background-color: #FFE3E1;
+    border-radius: 20px;
+    padding: 10px;
+    margin: .6rem .6rem .3rem .6rem;
+}
+.imagewrapper {
+    display: flex;
+    max-width: 100vw;
+    margin-bottom: 5px;
+    
+}
+.imagewrapper img {
+    max-width: 100%;
+    border-radius: 15px;
+    border: 1px solid #d5bcbc;
+}
+.card ul {
+    width: 100%;
+    margin-top: 5px;
+    background-color: #efefef;
+    border-radius: 15px;
+    border: 1px solid #d5bcbc;
+}
+.card ul li {
+    font-size: 1.2rem;
+    margin-left: 20px;
+    padding: 10px 8px 8px 0px;
+}
+@media(max-width: 767px){
+    .logo img {height: 80px;}
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 100;
+        background-color: var(--color2);
+        transition: all 0.2s ease-in-out;
+    }
+    .menu li {margin-top: 40px;}
+    .menu li a {padding: 10px;}
+    .open-menu , .close-menu {display: block;}
+    #check:checked ~ .menu {right: 0;}
+}
+@media(min-width: 768px) {
+    .card {
+        flex-direction: row;
+    }
+    .card ul {
+        height: 100%;
+        width: auto;
+        margin-left: 5px;
+        margin-top: 0px;
+        flex-shrink: 2;
+    }
+    .imagewrapper {
+        margin-right: 5px;
+        margin-bottom: 0px;
+        flex-shrink: 3;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+    <nav>
+        <ul class='nav-bar'>
+            <li class='logo'><a href='#'><img src='https://raw.githubusercontent.com/wmarszolik/wmarszolik.github.io/main/Asset2.png'/></a></li>
+            <input type='checkbox' id='check' />
+            <span class="menu">
+                <li><a href="https://www.ebay.de/usr/marmarkt24">home</a></li>
+                <li><a href="https://feedback.ebay.de/ws/eBayISAPI.dll?ViewFeedback2&amp;userid=marmarkt24">bewertungen</a></li>
+                <li><a href="https://my.ebay.de/ws/eBayISAPI.dll?AcceptSavedSeller&amp;sellerid=marmarkt24">speichern</a></li>
+                <li><a href="https://contact.ebay.de/ws/eBayISAPI.dll?ReturnUserEmail&amp;requested=marmarkt24">kontakt</a></li>
+                <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+            </span>
+            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+        </ul>
+    </nav>
+    </header>
+    <section class="content">
+        <div class="card">
+            <div class="imagewrapper">
+                <img src="https://picsum.photos/1200/800">
+            </div>
+            <ul class="text"> 
+                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</li>
+                <li>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</li>
+                <li>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</li>
+                <li>consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</li> 
+            </ul>
+        </div>
+        <div class="card">
+            <div class="imagewrapper">
+                <img src="https://picsum.photos/3000/2000">
+            </div>
+            <ul class="text"> 
+                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</li>
+                <li>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</li>
+                <li>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</li>
+                <li>consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</li> 
+            </ul>
+        </div>
+        <div class="card">
+            <div class="imagewrapper">
+                <img src="https://picsum.photos/768/500">
+            </div>
+            <ul class="text"> 
+                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</li>
+                <li>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</li>
+                <li>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</li>
+                <li>consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</li> 
+            </ul>
+        </div>
+        <div class="card">
+            <div class="imagewrapper">
+                <img src="https://picsum.photos/500/500">
+            </div>
+            <ul class="text"> 
+                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</li>
+                <li>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</li>
+                <li>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</li>
+                <li>consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</li> 
+            </ul>
+        </div>
+        <div class="card">
+            <div class="imagewrapper">
+                <img src="https://picsum.photos/1500/1200">
+            </div>
+            <ul class="text"> 
+                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</li>
+                <li>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</li>
+                <li>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</li>
+                <li>consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</li> 
+            </ul>
+        </div>
+        
+</body>
